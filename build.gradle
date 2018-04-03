@@ -13,8 +13,8 @@ repositories {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp'
 apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
 apply plugin: 'com.bmuschko.tomcat'
 
 description 'JSF Java web application with Eclipse'
@@ -48,4 +48,28 @@ tasks.withType(JavaCompile) {
   options.warnings = true
   options.deprecation = true
   options.compilerArgs += ['-Xlint:all', '-Werror']
+}
+
+eclipse {
+    jdt {
+        sourceCompatibility=1.8
+        targetCompatibility=1.8
+    }
+
+  wtp {
+    // https://docs.gradle.org/current/dsl/org.gradle.plugins.ide.eclipse.model.EclipseWtpComponent.html
+    component {
+      contextPath = 'jsfdemo'
+    }
+
+    // https://docs.gradle.org/current/dsl/org.gradle.plugins.ide.eclipse.model.EclipseWtpFacet.html
+    facet {
+            facet name: 'jst.java', version: '1.8'
+            facet name: 'jst.web', version: '3.0'
+    }
+  }
+}
+
+tomcat {
+  httpPort = 8081
 }

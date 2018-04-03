@@ -19,7 +19,7 @@ apply plugin: 'com.bmuschko.tomcat'
 
 description 'JSF Java web application with Eclipse'
 project.webAppDirName = 'src/main/WebContent'
-defaultTasks 'war', 'tomcatRun'
+defaultTasks 'clean', 'war', 'tomcatRun'
 
 dependencies {
   compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'

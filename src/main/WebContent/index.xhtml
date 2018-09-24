@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:f="http://java.sun.com/jsf/core"
-xmlns:h="http://java.sun.com/jsf/html">
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,7 +15,7 @@ xmlns:h="http://java.sun.com/jsf/html">
 <h1>#{msg.pageHeading}</h1>
   <h:form>
 	<p><h:outputLabel for="inputName" value="#{msg.labelName}"/>
-		<h:inputText id="inputName" value="#{mainBean.name}"/></p>
+		<h:inputText id="inputName" value="#{mainBean.name}" p:placeholder="#{msg.placeholderName}"/></p>
 	<p><h:commandButton  action="#{mainBean.actionOk}" value="#{msg.buttonOk}"/></p>
 	<hr/>
 	<ui:fragment rendered="#{not empty mainBean.time}">

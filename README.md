@@ -4,10 +4,10 @@ A small sample web application.
 
 ## Technologies
 * Java 8
-* Gradle 4.10.2
+* Gradle 5.2.1
 * JSF 2.2
-* Weld 3.0.5
-* Tomcat 8.0.53
+* Weld 3.1.0
+* Tomcat 9.0.16
 
 ## Usage
 * Run ```./gradlew```

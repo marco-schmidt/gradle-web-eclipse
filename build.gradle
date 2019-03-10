@@ -22,22 +22,22 @@ project.webAppDirName = 'src/main/WebContent'
 defaultTasks 'clean', 'war', 'tomcatRun'
 
 dependencies {
-  compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+  compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
   compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
   testCompile group: 'junit', name: 'junit', version: '4.12'
   compile 'com.sun.faces:jsf-api:2.2.18'  
   compile 'com.sun.faces:jsf-impl:2.2.18'  
   compile 'javax.servlet:jstl:1.2'  
-  compile 'org.jboss.weld.servlet:weld-servlet-shaded:3.0.5.Final'
+  compile 'org.jboss.weld.servlet:weld-servlet-shaded:3.1.0.Final'
   providedCompile 'javax.servlet:servlet-api:2.5'
-  def tomcatVersion = '8.0.53'
+  def tomcatVersion = '9.0.16'
   tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M6",
            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 }
 
 wrapper {
-  gradleVersion = '4.10.2'
+  gradleVersion = '5.2.1'
 }
 
 tasks.withType(JavaCompile) {
@@ -71,5 +71,7 @@ eclipse {
 }
 
 tomcat {
+  httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+  ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
   httpPort = 8081
 }
